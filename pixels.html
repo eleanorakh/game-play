@@ -1,0 +1,49 @@
+<!DOCTYPE>
+<html>
+<body>
+  <div id="player"></div>
+  <style>
+    #player{
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #facade;
+      width: 10px;
+      height: 10px;
+    }
+  </style>
+  <script src="jquery-3.1.1.min.js"></script>
+  <script>
+    var playerWidth = 10;
+    $(document).bind('keydown', function(e) {
+      if (e.originalEvent.key == 'a') {
+        if ($('#player').position().left > 0) {
+          // move 10px left
+          $('#player').css({left: "-=10"})
+        }
+      }
+
+      if (e.originalEvent.key == 'w') {
+        if ($('#player').position().top > 0) {
+          // move 10px up
+          $('#player').css({top: "-=10"})
+        }
+      }
+
+      if (e.originalEvent.key == 'd') {
+        // move 10px right
+        if ($('#player').position().left + 10 + playerWidth < $(window).width()) {
+          $('#player').css({left: "+=10"})
+        }
+      }
+
+      if (e.originalEvent.key == 's') {
+        // move 10px down
+        if ($('#player').position().top + 10 + playerWidth < $(window).height()) {
+          $('#player').css({top: "+=10"})
+        }
+      }
+    })
+  </script>
+</body>
+</html>
